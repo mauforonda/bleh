@@ -26,7 +26,7 @@ def save_raindrops(data, filename):
     with open(filename, 'w+') as f:
         json.dump(data, f, ensure_ascii=False)
 
-response = get_raindrops("type:article type:link match:OR", 50)
+response = get_raindrops("-file:true", 50)
 if response.status_code == 200:
     data = format_raindrops(response)
     save_raindrops(data, FILENAME)
